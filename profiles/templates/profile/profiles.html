@@ -1,0 +1,36 @@
+{% extends 'base/index.html' %}
+
+
+{% block content %}
+
+<div class="container">
+{% for profile in profiles %}
+
+
+<div class="row">
+    <div class="card mb-4">
+        {% if profile.photo %}
+            <a href="{% url 'profile' profile.id %}"><img src="{{ profile.photo.url }}" height="200"></a>
+
+        {% endif %}
+        <div class="card-body">
+                <h2 class="card-title h4">{{ profile.username }}</h2>
+                <p class="card-text">{{ profile.first_name }}</p>
+                <a class="btn btn-primary" href="{% url 'profile' profile.id %}">Просмотреть профиль</a>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<!--<a href=""></a>-->
+
+
+{% endfor %}
+</div>
+
+
+{% endblock %}

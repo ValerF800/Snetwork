@@ -1,0 +1,22 @@
+{% extends 'base/index.html' %}
+
+{% block content %}
+
+
+<h1> Все сообщения:</h1>
+<a href="{% url 'create-message' %}"> Написать сообщение</a>
+
+
+<div class="container">
+{% for message in messages %}
+
+
+        <h3>{{ message.sender }}</h3>
+        <h5>{{ message.body }}</h5>
+
+
+
+{% endfor %}
+</div>
+
+{% endblock %}

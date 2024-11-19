@@ -1,0 +1,12 @@
+{% extends 'base/index.html' %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+<!--  <input type="file" name="image" accept="image/*">-->
+  <button type="submit">Сохранить</button>
+</form>
+
+{% endblock %}

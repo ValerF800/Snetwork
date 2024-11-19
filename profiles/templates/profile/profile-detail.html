@@ -1,0 +1,33 @@
+{% extends 'base/index.html' %}
+
+{% load static %}
+{% block content %}
+
+<h2>{{ profile.first_name }}</h2>
+<h3>{{ profile.last_name }}</h3>
+
+{% if profile.photo %}
+<p><img src="{{ profile.photo.url }}" height="300"></p>
+
+{% endif %}
+<a href="{% url 'create-message' %}" class="button-style">Написать сообщение</a>
+
+
+    {% if request.user.is_authenticated and request.user != profile %}
+        {% if request.user in profile.followers.all %}
+            <button class="btn btn-sm btn-danger btn-follow" data-slug="{{ profile.id }}">
+                Отписаться от {{ profile.username }}</button>
+        {% else %}
+            <button class="btn btn-sm btn-primary btn-follow" data-slug="{{ profile.id }}">
+                Подписаться на {{ profile.username }}</button>
+        {% endif %}
+    {% elif request.user == profile %}
+    <a href="{% url 'change-profile' profile.id %}" class="button-style"> Редактировать профиль</a>
+    {% endif %}
+
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock %}

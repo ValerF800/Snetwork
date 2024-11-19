@@ -1,0 +1,13 @@
+{% extends 'base/index.html' %}
+
+{% block content %}
+
+
+    <h1> Подробнее о статье {{post.title}}</h1>
+    <h3>{{post.description}}</h3>
+    <a href="{% url 'profile' post.author.id %}">Автор статьи:  {{ post.author.username }}</a>
+
+`<a href="{% url 'article-edit' post.id %}">Редактировать статью</a>
+
+
+{% endblock %}
