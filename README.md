@@ -1,2 +1,2 @@
 # Django Social network
-## [Сам сайт](itfinder.webhostora.ru)
+## Сайт можно оценить [здесь](http://itfinder.webhostora.ru)
